@@ -1,7 +1,7 @@
 ﻿@model List<Punto_de_venta.Models.PedidosModel>
 
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Dashboard";
 }
 
     <div class="content-header">
@@ -26,12 +26,12 @@
                 <!-- small box -->
                 <div class="small-box bg-info">
                     <div class="inner">
-                        <h3>150</h3>
+                        <h3>@ViewBag.TotalClientes</h3>
 
                         <p>Clientes</p>
                     </div>
                     <div class="icon">
-                        <i class="ion ion-bag"></i>
+                        <i class="fa fa-users"></i>
                     </div>
                 </div>
             </div>
@@ -40,12 +40,12 @@
                 <!-- small box -->
                 <div class="small-box bg-success">
                     <div class="inner">
-                        <h3>500</h3>
+                        <h3>@ViewBag.TotalProductos</h3>
 
                         <p>Productos</p>
                     </div>
                     <div class="icon">
-                        <i class="ion ion-stats-bars"></i>
+                        <i class="fa fa-chart-bar"></i>
                     </div>
                 </div>
             </div>
@@ -54,12 +54,12 @@
                 <!-- small box -->
                 <div class="small-box bg-warning">
                     <div class="inner">
-                        <h3>50</h3>
+                        <h3>@ViewBag.TotalPedidos</h3>
 
                         <p>Pedidos</p>
                     </div>
                     <div class="icon">
-                        <i class="ion ion-person-add"></i>
+                        <i class="fa fa-cart-plus"></i>
                     </div>
                 </div>
             </div>

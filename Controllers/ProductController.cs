@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Punto_de_venta.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,80 +12,28 @@ namespace Punto_de_venta.Controllers
         // GET: Product
         public ActionResult Index()
         {
-
-            return View();
+            PuntoVentaEntities db = new PuntoVentaEntities();
+            var productos = db.Productos.ToList();
+            return View(productos);
         }
 
-        // GET: Product/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Edit(int id)
         {
+            PuntoVentaEntities db = new PuntoVentaEntities();
+            var producto = db.Productos.Find(id);
+
+            ViewBag.Id = producto.IdProducto;
+            ViewBag.Nombre = producto.NombreProducto;
+            ViewBag.Costo = producto.Costo;
+            ViewBag.Precio = producto.Precio;
+            ViewBag.Fecha = producto.Fecha;
+   
             return View();
         }
 
-        // GET: Product/Create
         public ActionResult Create()
         {
             return View();
-        }
-
-        // POST: Product/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Product/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Product/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Product/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Product/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
         }
     }
 }

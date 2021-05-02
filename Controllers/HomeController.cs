@@ -25,6 +25,10 @@ namespace Punto_de_venta.Controllers
                           }).ToList();
 
 
+            ViewBag.TotalPedidos = db.Pedidos.SqlQuery("SELECT * FROM Pedidos").Count();
+            ViewBag.TotalProductos = db.Productos.SqlQuery("SELECT * FROM Productos").Count();
+            ViewBag.TotalClientes = db.Clientes.SqlQuery("SELECT * FROM Clientes").Count();
+
             return View(pedidos);
         }
     }
